@@ -1,5 +1,5 @@
 # First Steps with NPM
-[![CI build](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/node.js.yml/badge.svg)](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/node.js.yml)
+[![CI build](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/ci.yml/badge.svg)](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/ci.yml)
 
 This tutorial will introduce how to build and use a first NPM module. It contains the solution projects, but to understand how NPM works, you should do the steps at your own.
 
