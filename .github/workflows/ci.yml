@@ -22,6 +22,9 @@ jobs:
     - name: Pack helloworld
       working-directory: ./npm-helloworld
       run: npm pack
-    - name: Build myapp
+    - name: Re-create package-lock.json (because of checksum issues with the Tarball)
       working-directory: ./npm-myapp
-      run: rm -f package-lock.json && npm install && npm start
+      run: rm -f package-lock.json && npm install
+    - name: Run myapp
+      working-directory: ./npm-myapp
+      run: npm start
