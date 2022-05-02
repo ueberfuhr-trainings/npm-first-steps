@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build helloworld
       working-directory: ./npm-helloworld
-      run: npm ci && npm test && npm pack
+      run: npm -v && npm ci && npm test && npm pack
     - name: Clean cache (avoid checksum failure)
       working-directory: ./npm-myapp
       run: npm cache clean --force && npm cache verify
