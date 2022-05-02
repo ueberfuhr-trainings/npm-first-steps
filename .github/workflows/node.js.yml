@@ -21,7 +21,7 @@ jobs:
       run: npm ci && npm test && npm pack
     - name: Clean cache (avoid checksum failure)
       working-directory: ./npm-myapp
-      run: npm cache clean --force && cache verify
+      run: npm cache clean --force && npm cache verify
     - name: Build myapp
       working-directory: ./npm-myapp
       run: npm ci && npm pack
