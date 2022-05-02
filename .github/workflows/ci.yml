@@ -1,0 +1,27 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: CI build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build helloworld
+      working-directory: ./npm-helloworld
+      run: ls -a && npm ci && npm test && ls -a
+    - name: Pack helloworld
+      working-directory: ./npm-helloworld
+      run: ls -a && npm pack && ls -a
+    - name: Build myapp
+      working-directory: ./npm-myapp
+      run: ls -a && npm ci && npm pack
