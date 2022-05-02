@@ -19,6 +19,9 @@ jobs:
     - name: Build helloworld
       working-directory: ./npm-helloworld
       run: npm ci && npm test && npm pack
+    - name: Clean cache (avoid checksum failure)
+      working-directory: ./npm-myapp
+      run: npm cache clean --force && cache verify
     - name: Build myapp
       working-directory: ./npm-myapp
       run: npm ci && npm pack
