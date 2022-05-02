@@ -22,6 +22,12 @@ jobs:
     - name: Pack helloworld
       working-directory: ./npm-helloworld
       run: ls -a && npm pack && ls -a
+    - name: Unpack helloworld
+      working-directory: ./npm-helloworld
+      run: tar -xvzf npm-helloworld-1.0.0.tgz && ls -a
+    - name: Print unpacked helloworld
+      working-directory: ./npm-helloworld/npm-helloworld-1.0.0
+      run: ls -a
     - name: Build myapp
       working-directory: ./npm-myapp
       run: ls -a && npm ci && npm pack
