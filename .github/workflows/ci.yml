@@ -24,4 +24,4 @@ jobs:
       run: npm pack
     - name: Build myapp
       working-directory: ./npm-myapp
-      run: npm ci && npm pack
+      run: npm install && npm pack
