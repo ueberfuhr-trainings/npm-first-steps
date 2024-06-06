@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Just a helloworld sample",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha test.js"
   },
   "author": "Ralf Ueberfuhr",
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^9.1.4"
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0"
   }
 }
