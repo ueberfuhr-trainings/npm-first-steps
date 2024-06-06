@@ -24,7 +24,7 @@ jobs:
       run: npm pack
     - name: Re-create package-lock.json (because of checksum issues with the Tarball)
       working-directory: ./npm-myapp
-      run: rm -f package-lock.json && npm ci
+      run: rm -f package-lock.json && npm install
     - name: Run myapp
       working-directory: ./npm-myapp
       run: npm start
