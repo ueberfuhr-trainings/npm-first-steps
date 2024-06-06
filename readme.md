@@ -1,4 +1,5 @@
 # First Steps with NPM
+
 [![CI build](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/ci.yml/badge.svg)](https://github.com/ueberfuhr-tutorials/npm-first-steps/actions/workflows/ci.yml)
 
 This tutorial will introduce how to build and use a first NPM module. It contains the solution projects, but to understand how NPM works, you should do the steps at your own.
@@ -16,11 +17,21 @@ npm init
 # ... just press 'OK' multiple times until the file is generated
 ```
 
+Open the `package.json` and add the following line:
+
+```json
+{
+  "type": "module"
+}
+
+```
+
 ### Implementation
 
 Create a `index.js` file (referenced in `package.json`) with the following content:
+
 ```javascript
-exports.getHelloWorld = function() {
+export function getHelloWorld() {
     return "Hello World!";
 }
 ```
@@ -37,12 +48,12 @@ npm install mocha@latest --save-dev
 Then, create a `test.js` file with this content:
 
 ```javascript
-const expect = require('chai').expect;
-const myapp = require(".");
+import { expect } from 'chai';
+import { getHelloWorld } from './index.js';
 
 describe('Function getHelloWorld', () => {
     it('Should Return Hello World!', () => {
-        expect(myapp.getHelloWorld()).to.equal("Hello World!");
+        expect(getHelloWorld()).to.equal("Hello World!");
     });
 });
 ```
@@ -60,7 +71,7 @@ To make the test runnable, insert a script into the `package.json` file:
 You should then be able to run the test with
 
 ```bash
-npm test
+npm run test
 ```
 
 # Use the Module in another one
@@ -83,8 +94,9 @@ npm install <path-to-tgz-file>
 Create an `index.js` file and use the function from the other module:
 
 ```javascript
-let myModule = require("npm-helloworld");
-console.log(myModule.getHelloWorld()); 
+import { getHelloWorld } from "npm-helloworld";
+
+console.log(getHelloWorld()); 
 ```
 
 You should then be able to start it with
@@ -106,5 +118,5 @@ It is recommended to add a script to `package.json`:
 You should then be able to run the test with
 
 ```bash
-npm start
+npm run start
 ```

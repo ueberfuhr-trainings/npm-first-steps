@@ -1,2 +1,3 @@
-let myModule = require("npm-helloworld");
-console.log(myModule.getHelloWorld());
+import { getHelloWorld } from "npm-helloworld";
+
+console.log(getHelloWorld());

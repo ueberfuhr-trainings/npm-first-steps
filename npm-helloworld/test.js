@@ -1,8 +1,8 @@
-const expect = require('chai').expect;
-const myapp = require(".");
+import { expect } from 'chai';
+import { getHelloWorld } from './index.js';
 
 describe('Function getHelloWorld', () => {
     it('Should Return Hello World!', () => {
-        expect(myapp.getHelloWorld()).to.equal("Hello World!");
+        expect(getHelloWorld()).to.equal("Hello World!");
     });
 });
